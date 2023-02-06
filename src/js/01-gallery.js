@@ -7,7 +7,6 @@ import '../../node_modules/simplelightbox/dist/simple-lightbox.min.css';
 const refs = {
   gallery: document.querySelector('.gallery'),
 };
-// 1.
 
 const makeMarkup = array => {
   return array
