@@ -1,3 +1,5 @@
+import throttle from 'lodash.throttle';
+
 const refs = {
   email: document.querySelector('[name="email"]'),
   textarea: document.querySelector('[name="message"]'),
@@ -28,7 +30,7 @@ const onFormSubmitting = event => {
   console.log(feedbackData);
 
   //Варіант 2
-  //Якийсь складний запис, думаю має бути простіший варіант.
+  //Показує все коректно, але якийсь складний запис, думаю має бути простіший варіант.
   console.log(JSON.parse(localStorage.getItem(FEEDBACK_DATA)));
 
   event.preventDefault();
@@ -38,5 +40,5 @@ const onFormSubmitting = event => {
   event.currentTarget.reset();
 };
 
-refs.form.addEventListener('input', updateFeedbackData);
+refs.form.addEventListener('input', throttle(updateFeedbackData, 500));
 refs.form.addEventListener('submit', onFormSubmitting);
